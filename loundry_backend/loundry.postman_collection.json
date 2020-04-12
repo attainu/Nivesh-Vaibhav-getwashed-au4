@@ -1,0 +1,347 @@
+{
+	"variables": [],
+	"info": {
+		"name": "loundry",
+		"_postman_id": "8c249a8f-93ac-dac3-90de-739e689f0bb3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/user/signup",
+			"request": {
+				"url": "localhost:8080/user/signup",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : 1,\n\t\"fullName\" : \"vaibhav deshmukh\",\n\t\"email\": \"vaibhavdeshmukh@gmail.com\",\n\t\"password\" : \"vaibahv@123\",\n\t\"mobile\" : \"9657896333\",\n\t\"address\" : \"a/p-rahatani\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/user/signin",
+			"request": {
+				"url": "localhost:8080/user/signin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"vaibhavdeshmukh@gmail.com\",\n\t\"password\" : \"vaibahv@123\"\n}\n"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "e6e9d371-59e5-4b38-b744-d33d69fcc2eb",
+					"name": "localhost:8080/user/signin",
+					"originalRequest": {
+						"url": "localhost:8080/user/signin",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"warning": ""
+							},
+							{
+								"key": "token",
+								"value": "{\n\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE1ODYwODE1MDB9.NUIF9JgtxH2_VC71UtX4LykcawNwRoSdv8NmYU17O2o\"\n}",
+								"description": "",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"vaibhavdeshmukh@gmail.com\",\n\t\"password\" : \"vaibahv@123\"\n}\n"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "129",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sun, 05 Apr 2020 10:11:39 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "etag",
+							"key": "etag",
+							"value": "W/\"81-pg1tQQmn9S2Nu9L8LFxmIhmeYNc\"",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"name": "x-powered-by",
+							"key": "x-powered-by",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 1214,
+					"body": "{\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE1ODYwODE1MDB9.NUIF9JgtxH2_VC71UtX4LykcawNwRoSdv8NmYU17O2o\"}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/user/update/:id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/user/update/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"update",
+						":id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/order/add",
+			"request": {
+				"url": "localhost:8080/order/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"id\":4,\n\t\"order_date\"  : \"Sat Apr 11 2020 18:35:03 GMT+0530 (India Standard Time)\",\n\t\"order_time\" : \"20:52:03\",\n\t\"order_typeOfWash\" : \"WASH\",\n\t\"order_totalPrice\":400,\n\t\"order_paymentMode\" : \"CASH\",\n\t\"order_status\":\"Picked\",\n\t\"order_clothId\": [1,2,3],\n\t\"order_userId\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/order/read/:id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/order/read/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"read",
+						":id"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user/read/:id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/user/read/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"read",
+						":id"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cloth/add",
+			"request": {
+				"url": "localhost:8080/cloth/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":4,\n\t\"cloth_name\" : \"Shorts\",\n\t\"cloth_quantity\" : 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/order/read/order/:date",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/order/read/order/:date",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"read",
+						"order",
+						":date"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "date",
+							"value": "Sat Apr 12 2020 18:35:03 GMT+0530 (India Standard Time)"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/order/read/user/:id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/order/read/user/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"read",
+						"user",
+						":id"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "by user id for show them on profile"
+			},
+			"response": []
+		}
+	]
+}
