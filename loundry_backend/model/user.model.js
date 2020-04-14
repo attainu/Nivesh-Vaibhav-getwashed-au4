@@ -21,6 +21,10 @@ const user = dbConnection.define('user',{
         type : Sequelize.STRING,
         allowNull : false
     },
+    city:{
+        type:Sequelize.STRING,
+        allowNull: false
+    },
     address : {
         type : Sequelize.TEXT,
         allowNull : false 
@@ -44,6 +48,7 @@ user.encryptPassword = password =>{
 };
 
 user.validatePassword = (password,user) => {
+    console.log('inside valid password');
     return bcrypt.compareSync(password,user.password);
 };
 

@@ -24,12 +24,12 @@ router.post('/signup',async(req, res, next)=> {
       if(user === null){
         let user = await User.create(body);
           res.json({
-            user
+            message :'User signUp Successfully'
           });  
       }
       else{
-        res.json({ status :'User All Ready signUp with Email' });
-                }
+        res.json({ message :'User All Ready signUp with Email' });
+      }
 
   } catch (error) {
     console.log(error)
@@ -61,20 +61,25 @@ router.get('/read/:id',authenticate,async (req,res,next)=>{
 router.post('/signin',async(req,res,next)=>{
   try {
     let { ...body} = req.body;
-    
- 
+
     let user = await User.findOne({ where : { email : body.email }});
     if(user){
+      console.log('inside user');
       if(User.validatePassword(body.password,user))
         {
+           console.log('inside validpassword');
           const token = jwt.sign({ user : user.id },confige.secret,{  expiresIn: '30' });
         let { password, ...newUser} = user.dataValues;
          newUser.token = token;
           res.status(200).json(newUser);
         }
+        else{
+          res.json({ message : 'Invalid Password'});
+        }
       }
     else{
-      res.json({ status : 'Unauthorise user'});
+      console.log('unathorised');
+      res.json({ message : 'Unauthorised user'});
     }
   } catch (error) {
     console.log(error);
