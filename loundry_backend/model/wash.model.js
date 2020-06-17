@@ -4,17 +4,29 @@ const Sequelize = require('sequelize');
 const Cloth = require('./cloth.model')
 
 const wash = dbConnection.define('wash',{
-        price :{
-            type: Sequelize.INTEGER,
-            allowNull :  false
-        },
+      cloth_name : {
+          type: Sequelize.STRING,
+          allowNull : false
+      },
+      price :{
+        type: Sequelize.INTEGER,
+        allowNull :  false
+      },
+      cloth_quantity :{
+          type: Sequelize.INTEGER,
+          allowNull : false
+      },
+      image:{
+        type:Sequelize.BLOB,
+        allowNull : false
+      }
       
   },{
     timestamps: false
   }
 );
 
-wash.belongsTo(Cloth,{ foreignKey : "cloth_id",type:Sequelize.INTEGER,targetKey:"id"},);
+//wash.belongsTo(Cloth,{ foreignKey : "cloth_id",type:Sequelize.INTEGER,targetKey:"id"},);
 
 wash.sync()
     .then((res)=>{ console.log('Wash Table Is Created')})

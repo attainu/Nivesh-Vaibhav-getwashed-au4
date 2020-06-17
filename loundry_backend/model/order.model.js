@@ -2,20 +2,18 @@ const dbConnection = require('../Database/dbConnection');
 const Sequelize = require('sequelize');
 
 const User = require('./user.model');
-const Cloth = require('./cloth.model')
-console.log(User,Cloth);
+
 const order = dbConnection.define('order',{
         order_date :{
             type: Sequelize.DATE,
             allowNull :  false
         }, 
-        order_time :{
-            type: Sequelize.TIME,
+        order_collection_time :{
+            type: Sequelize.STRING,
             allowNull :  false
         }, 
-        order_typeofwash :{
-            type: Sequelize.ENUM,
-            values: ['WASH', 'DRY CLEAN','IRON'],
+        order_address :{
+            type : Sequelize.STRING,
             allowNull :  false
         },
         order_totalprice :{
@@ -23,22 +21,21 @@ const order = dbConnection.define('order',{
             allowNull : false 
          }, 
         order_paymentmode :{
-            type: Sequelize.ENUM,
-            values: ['CASH', 'CARD','UPI'],
+            type: Sequelize.STRING,
             allowNull : false 
         },
         order_status : {
-            type :Sequelize.ENUM,
-            values: ['Picked', 'InProgress','Complite','Deliverd']
-        },
+            type :Sequelize.STRING,
+           allowNull : false
+        }
       
   },{
     timestamps: false
   }
 );
 
-order.belongsTo(User,{ foreignKey : "order_userId",type:Sequelize.INTEGER,targetKey:"id"},);
-order.belongsTo(Cloth,{ foreignKey : "order_clothId",type:Sequelize.ARRAY(Sequelize.INTEGER),targerKey :"id"});
+User.hasMany(order,{ foreignKey : "order_userId", targetKey:'id'});
+order.belongsTo(User,{ foreignKey : "order_userId",targetKey:"id"});
 
 order.sync().then((res)=>{
     console.log('order table is created');

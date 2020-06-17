@@ -7,9 +7,23 @@ const Cloth = require('../model/cloth.model');
 router.post('/add', async(req, res, next) => {
   try {
       let {...body } = req.body;
-      console.log(body);
-      let cloth = await Cloth.create(body);
-      res.json({ cloth });
+     console.log(body);
+
+     let newItemArray = [];
+     for(let value in body) {
+         let {id,image,...obj} = body[value];
+         newItemArray.push(obj);
+     }
+
+    let cloth = await Cloth.bulkCreate(newItemArray);
+
+    let itemId=[];
+    for(value in cloth) {
+      let{ id ,...item} = cloth[value];
+      itemId.push(id);
+    }
+      res.json({ itemId });
+     
   } catch (error) {
     console.log(error)
   }

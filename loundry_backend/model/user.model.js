@@ -29,15 +29,7 @@ const user = dbConnection.define('user',{
         type : Sequelize.TEXT,
         allowNull : false 
     } 
-    // user_orderId : {
-    //     type: Sequelize.INTEGER,
-    //     allowNull : true,
-    //     reference:{
-    //         model : Order,
-    //         key : "id",
-    //         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-    //     }
-    // }
+   
 },{
     timestamps: false
 });

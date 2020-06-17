@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var expressRateLimit = require('express-rate-limit');
 // let session = require('express-session');
 
 var clothRouter = require('./routes/cloth.route.js');
@@ -10,11 +11,10 @@ var userRouter = require('./routes/user.route.js');
 var ironRouter = require('./routes/iron.route.js');
 var washRouter = require('./routes/wash.route.js');
 var dryCleanRouter = require('./routes/dryClean.route.js');
-
-const dbCoonecction = require('./Database/dbConnection');
+let actionRouter = require('./routes/action.route');
 
 var app = express();
-
+app.set('trust proxy', 1);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,10 +38,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   );
 
 
-  app.use('/cloth', clothRouter);
- app.use('/order', orderRouter);
+app.use('/cloth', clothRouter);
+app.use('/order', orderRouter);
 app.use('/user', userRouter);
 app.use('/iron', ironRouter);
 app.use('/wash',washRouter);
-app.use('/dryClean', dryCleanRouter);
+app.use('/dryClean',dryCleanRouter);
+app.use('/action',actionRouter);
+
+
 module.exports = app;
