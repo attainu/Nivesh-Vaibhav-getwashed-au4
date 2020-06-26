@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node ./loundry_backend/bin/www",
     "heroku-postbuild": "cd loundry_frontend && npm install && npm run build",
     "build:deploy": "cross-env NODE_ENV=production webpack"
   },
