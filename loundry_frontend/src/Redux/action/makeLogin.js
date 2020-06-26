@@ -1,5 +1,5 @@
 const axios = require('axios');
-const makeLogin=(state)=>{
+export const makeLogin=(state)=>{
     return (dispatch)=>{
         const result = axios.post(`http://localhost:8080/user/signin`,state);
             result
@@ -31,4 +31,3 @@ const sendMassage= (obj)=>({
   payload : obj
 })
 
-module.exports= makeLogin;

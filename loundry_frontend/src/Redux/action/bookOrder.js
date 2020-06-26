@@ -1,4 +1,4 @@
-const bookOrder=(id)=>{
+export const bookOrder=(id)=>{
     console.log(id);
 return (dispatch)=>{
     try {
@@ -14,7 +14,7 @@ const order=(id)=>({
 })
 
 // dispatch function for add Cloth to order
-const addCloth=(item,action)=>{
+export const addCloth=(item,action)=>{
     return (dispatch)=>{
         try{
             dispatch(cloth(item,action));
@@ -29,7 +29,7 @@ const cloth=(product,action)=>({
     payloadAction : action
 })
 //dispatch function for change date
-const selectDate = (date)=>{
+export const selectDate = (date)=>{
 return (dispatch)=>{
         try{
             dispatch(setDate(date));
@@ -43,7 +43,7 @@ const setDate=(date)=>({
     payload: date
 })
 // dispatch function for change actionType
-const action = (actionType)=>{
+export const action = (actionType)=>{
     return (dispatch)=>{
     try {
             dispatch(takeAaction(actionType));
@@ -57,7 +57,7 @@ const takeAaction=(obj)=>({
 })
 
 // dispact function for change time slote
-const timeSloat = (timesloat)=>{
+export const timeSloat = (timesloat)=>{
     return (dispatch)=>{
     try {
        
@@ -72,7 +72,7 @@ const changeTimeSloat=(obj)=>({
 });
  
 //Dispatch Function for edit [ADD] item quantity
-const addItemQuantity =(index)=>{
+export const addItemQuantity =(index)=>{
     return (dispatch)=>{
         try {
             console.log('inside dispatch');
@@ -88,7 +88,7 @@ const addQuantity=(index)=>({
 })
 
 // Dispatch Function for remove item Quantity
-const removeItemQuantity=(index)=>{
+export const removeItemQuantity=(index)=>{
     return (dispatch)=>{
         try {
             dispatch(removeQuantity(index));
@@ -103,7 +103,7 @@ const removeQuantity=(index)=>({
 })
 
 // dispatch function for remove item from Cart
-const removeItem=(index)=>{
+export const removeItem=(index)=>{
     return (dispatch)=>{
         try {
             console.log('inside dispatch');
@@ -118,7 +118,7 @@ const removeOrderItem=(index)=>({
     payload : index
 })
 
-const selectSameAddress=(address)=>{
+export const selectSameAddress=(address)=>{
    
     return (dispatch)=>{
         try {
@@ -134,7 +134,7 @@ const sendsameAddress=(address)=>({
     payload :address
 });
 
-const selectNewAddress=(obj)=>{
+export const selectNewAddress=(obj)=>{
     return (dispatch)=>{
         try {
            
@@ -149,7 +149,7 @@ const sendNewAddress=(obj)=>({
     payload : obj
 });
 
-const selectedPaymentMode =(mode)=>{
+export const selectedPaymentMode =(mode)=>{
     
     return (dispatch)=>{
         try{
@@ -165,4 +165,3 @@ const sendPaymentMode =(obj)=>({
     payload : obj
 })
 
-module.exports = {bookOrder,action,timeSloat,addCloth,selectDate, addItemQuantity,removeItemQuantity,removeItem,selectSameAddress,selectNewAddress,selectedPaymentMode};

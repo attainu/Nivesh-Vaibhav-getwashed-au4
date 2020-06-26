@@ -293,7 +293,7 @@ class BookOrder extends React.Component
     
 }
 const mapStateToProps = (state)=>{
-        console.log(state.orderReducer.userSelectedActionType);
+        
     return{
         id:state.loginReducer.loginUser.id,
         washAction : state.orderReducer.washAction,

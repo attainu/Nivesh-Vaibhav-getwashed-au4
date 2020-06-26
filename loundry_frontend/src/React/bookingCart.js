@@ -62,7 +62,7 @@ class BookingCart extends React.Component
                   )  
                 })}
             </div>
-            {this.props.items>1 && (<div>
+            {this.props.items.length >=1 && (<div>
                 <Link to='/address' href='/address'> <button className='fetchButton float-left m-2 border rounded' onClick={(event)=>{this.procedeOrder()}}>Proced To Order</button></Link>
             <div className="totalContainer border rounded m-2 p-2 float-right">Total Amount : <Icon name='rupee' /> {this.props.totalCost}</div>
             </div>)}

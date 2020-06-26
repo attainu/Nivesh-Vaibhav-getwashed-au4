@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link , Redirect} from 'react-router-dom';
-import makeLogin from "../Redux/action/makeLogin";
+import {makeLogin} from "../Redux/action/makeLogin";
 import { Form,Button } from "react-bootstrap";
 const axios = require('axios');
 class SignInForm extends Component {

@@ -1,5 +1,5 @@
 const axios = require('axios');
-const getOrder=(id)=>
+export const getOrder=(id)=>
 {
    return async(dispatch)=>{
     const token = localStorage.token;
@@ -32,4 +32,3 @@ const makeOrder=(obj)=>({
   payload:obj
 })
 
-module.exports = getOrder;

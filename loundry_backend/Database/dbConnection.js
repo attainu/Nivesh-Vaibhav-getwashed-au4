@@ -1,5 +1,14 @@
+const dotenv  = require('dotenv');
+dotenv.config();
 const Sequelize = require('sequelize');
-const dbConnection = new Sequelize('postgres://postgres:vaibhav@123@localhost:5432/loundry');
+ let dbConnection = null;
+if(process.env.NODE_ENV === 'production'){
+      dbConnection = new Sequelize(process.env.DATABASE_URL);
+}
+else{
+     dbConnection = new Sequelize(process.env.CONNECTIONURL);
+}
+ 
 
 dbConnection
     .authenticate()

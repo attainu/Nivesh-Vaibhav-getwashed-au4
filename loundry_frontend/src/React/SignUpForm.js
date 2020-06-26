@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  makeRegistration  from "../Redux/action/makeRegistration";
+import  {makeRegistration}  from "../Redux/action/makeRegistration";
 import { Form,Button } from "react-bootstrap";
 import { connect} from "react-redux";
 const axios = require('axios');
@@ -142,8 +142,7 @@ class SignUpForm extends Component {
     }
 }
 const mapStateToProps=(state)=>{
-  console.log(state.loginReducer.message)
-  return{
+    return{
       message : state.loginReducer.message
   }
 }

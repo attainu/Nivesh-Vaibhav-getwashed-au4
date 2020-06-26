@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const nodeMailer = require('nodemailer');
-const confige = require('../confige.js');
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const rateLimit = require("express-rate-limit");
 
@@ -54,7 +54,7 @@ router.post('/signup',async(req, res, next)=> {
         })
         
         random = Math.floor((Math.random()*100)+54);
-        console.log('ramdom value genrated is',random);
+       
         randomValue = random;
         host = req.get('host');
         link = "http://"+host+"/user/verify?id="+random;
@@ -69,8 +69,8 @@ router.post('/signup',async(req, res, next)=> {
               console.log(err);
             }
             else{
-              console.log(data.message);
-              
+             
+              alert('Check Your Email For Verification. Click The Link Given Below')
               res.json({
                 message :'Check Your Email For Verification. Click The Link Given Below'
               }); 
@@ -145,7 +145,7 @@ router.put('/update/:id',async(req,res,next)=>{
 router.get('/read/:id',async (req,res,next)=>{
   try {
     let { ...params } = req.params;
-      console.log(params);
+     
     let user = await User.findOne({ where : params},{attributes:[],
     include: [{model:Order,where:{order_userId : params},attributes:['id','order_date','order_collection_time','order_totalprice','order_status']},
               {model:Cloth,where :{ id : Order.id}, attributes:["cloth_name",'cloth_quantity','price','total','action']}]}
@@ -164,7 +164,7 @@ router.post('/signin',async(req,res,next)=>{
     {
         if(User.validatePassword(body.password,user))
         {          
-          const token = jwt.sign({ user : user.id },confige.secret,{expiresIn: 900});
+          const token = jwt.sign({ user : user.id },process.env.SECRET,{expiresIn: 900});
           let { password, ...newUser} = user.dataValues;
           newUser.token = token;
           res.status(200).json(newUser);
@@ -174,7 +174,7 @@ router.post('/signin',async(req,res,next)=>{
         }
       }
     else{
-      console.log('unathorised');
+     
       res.json({ message : 'Unauthorised user'});
     }
   } catch (error) {

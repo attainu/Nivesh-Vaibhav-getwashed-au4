@@ -36,7 +36,7 @@ class Navigationbar extends React.Component
                 <Icon className="large shopping cart"/>   
                 <Badge variant="warning">
                    { 
-                    this.props.items 
+                    this.props.items && this.props.items.length
                    }
                 </Badge>
                 </Nav.Link>
@@ -55,7 +55,7 @@ class Navigationbar extends React.Component
 const mapStateToProps = (state) =>{
     
     return{
-       items : state.orderReducer.items.length
+       items : state.orderReducer.items
     }
 }
 export default connect(mapStateToProps)(Navigationbar);

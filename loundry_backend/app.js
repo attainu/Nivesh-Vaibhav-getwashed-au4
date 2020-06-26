@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressRateLimit = require('express-rate-limit');
+
 // let session = require('express-session');
 
 var clothRouter = require('./routes/cloth.route.js');
@@ -19,7 +20,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 // app.use(
 //     session({
 //       name: "loundry_app",
@@ -36,7 +37,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 //       }
 //     })
 //   );
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname,'build')));
 
+    app.get('/*',(req,res)=>{
+       res.sendFile(path.join(__dirname+'/build/index.html'))
+    });
+}
 
 app.use('/cloth', clothRouter);
 app.use('/order', orderRouter);
@@ -45,6 +52,7 @@ app.use('/iron', ironRouter);
 app.use('/wash',washRouter);
 app.use('/dryClean',dryCleanRouter);
 app.use('/action',actionRouter);
+
 
 
 module.exports = app;

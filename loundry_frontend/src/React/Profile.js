@@ -3,13 +3,10 @@ import { Redirect } from 'react-router-dom'
 import BookOrder from './bookOrder.js';
 import GetOrderByUserId from './getUserOrder.component';
 import { connect } from "react-redux";
-import { Input, Menu, quote,shopping } from 'semantic-ui-react';
-import { Jumbotron, Button} from "react-bootstrap";
-import getOrder from "../Redux/action/getOrder";
+import { Jumbotron} from "react-bootstrap";
+import {getOrder} from "../Redux/action/getOrder";
 import {bookOrder,selectDate,action,timeSloat,addCloth} from "../Redux/action/bookOrder";
-import changeName from "../Redux/action/changeName"
 const axios = require('axios');
-
 
 class Profile extends React.Component
 {  
@@ -18,13 +15,12 @@ class Profile extends React.Component
         super(); 
         let isLoggedIn = false;
         let token = localStorage.getItem('token');
-        console.log('token',token);
+        
         if(token){
             isLoggedIn = true;
         }
        this.state={
             orders:[],
-            bookingOrder:{"name":"vaibhav","city":"satara"},
             bookOrder:"",
             getOrder:"",
             isLoggedIn
@@ -36,7 +32,7 @@ class Profile extends React.Component
     }
   
      handleGetOrder=()=>{
-        console.log('insede fetch');
+        
         this.setState({
             bookOrder : '',
             getOrder:"order"
@@ -51,10 +47,7 @@ class Profile extends React.Component
         })
         // this.props.bookOrder(this.state.bookingOrder);
     }
-    handleName=()=>{
-        
-        this.props.changeName(this.props.name);
-    }
+    
    
     
     render()
@@ -81,7 +74,7 @@ class Profile extends React.Component
                 </div>                
                     <button className='fetchButton' onClick={(e)=>{this.handleGetOrder(e.target)}}>Fetch Your Orders</button>&nbsp;&nbsp;
                     <button className='fetchButton' onClick={(e)=>{this.handleBookOrder(e.targetKey)}}>Book Your Loundry</button>&nbsp;&nbsp;                
-                    <button className='fetchButton' onClick={this.handleName}>Change Name</button>                
+                                 
             </Jumbotron>
             <div>
                 { this.state.getOrder && <GetOrderByUserId/>}
@@ -92,8 +85,9 @@ class Profile extends React.Component
     }
 }
 const mapStateToProps = (state)=>{
-  
+ 
     return{
+        
         id:state.loginReducer.loginUser.id,
         userName : state.loginReducer.loginUser.fullName,
         email : state.loginReducer.loginUser.email,

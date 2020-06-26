@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken');
-const confige = require('../confige.js');
-console.log(confige);
+require('dotenv').config();
 const authenticate =(req,res,next) =>{
 //'Authorization': `Bearer ${token}`
       var token = req.headers['x-access-token'];
         
        if(token){   
-        jwt.verify(token,confige.secret,(error,data)=>{
+        jwt.verify(token,process.env.SECRET,(error,data)=>{
            if(error)
            {      
                    
