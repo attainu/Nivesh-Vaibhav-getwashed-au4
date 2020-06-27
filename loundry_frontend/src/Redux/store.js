@@ -59,10 +59,18 @@ const orderReducer=(state=userOrderState,action)=>{
     
         let totalvalue;
     let stateCopy = JSON.parse(JSON.stringify(state));
-    let result = ls.get("BookingCart");
-    let total = ls.get("BookingCartTotal");
-    stateCopy.items = result;
-    stateCopy.totalCost = total;
+    let result = ls.get("LoundryCart");
+    console.log(result);
+
+if(result)
+{
+    if(result.Items.length>=1){
+        console.log('result',result);
+        stateCopy.items = result.Items;
+        stateCopy.totalCost = result.CartTotal;
+    }}
+   
+    
     switch (action.type) {
         
          case 'change_action':
@@ -138,8 +146,10 @@ const orderReducer=(state=userOrderState,action)=>{
                      result
                          .then((response)=>{
                              alert('order Placed Successfully');
-                            ls.set("BookingCart",[]);
-                            ls.set("BookingCartTotal",0);
+                             ls.set('LoundryCart',{
+                                "Items": [],
+                                "CartTotal" : 0
+                            });
                             stateCopy.items = [];
                             stateCopy.totalCost = 0;
                             return stateCopy;
@@ -171,8 +181,11 @@ const orderReducer=(state=userOrderState,action)=>{
               itemsCopy.push(newItem);
               stateCopy.items = itemsCopy;
               console.log(stateCopy.items);
-              ls.set('BookingCart',stateCopy.items); 
-              ls.set('BookingCartTotal',stateCopy.totalCost);
+              ls.set('LoundryCart',{
+                  "Items": stateCopy.items,
+                  "CartTotal" : stateCopy.totalCost
+              }); 
+              
             return stateCopy;   
         case 'addQuantity' :
 
@@ -183,8 +196,10 @@ const orderReducer=(state=userOrderState,action)=>{
                 stateCopy.items[index].total = totalvalue;
                 stateCopy.totalCost = stateCopy.totalCost + stateCopy.items[index].price;
                // stateCopy.items = itemsCopy
-               ls.set("BookingCart",stateCopy.items);
-               ls.set('BookingCartTotal',stateCopy.totalCost);
+               ls.set('LoundryCart',{
+                "Items": stateCopy.items,
+                "CartTotal" : stateCopy.totalCost
+            });
 
                 return stateCopy;
 
@@ -203,8 +218,10 @@ const orderReducer=(state=userOrderState,action)=>{
                 else
                     alert('Select 1 Piece For Order')   
                   
-                   ls.set("BookingCart",stateCopy.items);
-                   ls.set('BookingCartTotal',stateCopy.totalCost);
+                    ls.set('LoundryCart',{
+                        "Items": stateCopy.items,
+                        "CartTotal" : stateCopy.totalCost
+                    });
                    return stateCopy;
             
           
@@ -217,8 +234,10 @@ const orderReducer=(state=userOrderState,action)=>{
                     return (itemIndex !== itemindex)
                 })
                 stateCopy.items = newItems;
-                ls.set("BookingCart",stateCopy.items);
-                ls.set('BookingCartTotal',stateCopy.totalCost);
+                ls.set('LoundryCart',{
+                    "Items": stateCopy.items,
+                    "CartTotal" : stateCopy.totalCost
+                });
 
                 return stateCopy;     
         default:
