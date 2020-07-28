@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var jwt = require('jsonwebtoken');
 var expressRateLimit = require('express-rate-limit');
 
 // let session = require('express-session');
@@ -13,6 +14,7 @@ var ironRouter = require('./routes/iron.route.js');
 var washRouter = require('./routes/wash.route.js');
 var dryCleanRouter = require('./routes/dryClean.route.js');
 let actionRouter = require('./routes/action.route');
+let authenticate = require('./routes/authentication');
 
 var app = express();
 app.set('trust proxy', 1);
@@ -53,6 +55,25 @@ app.use('/wash',washRouter);
 app.use('/dryClean',dryCleanRouter);
 app.use('/action',actionRouter);
 
-
+app.get('/authenticate',(req,res,next)=>{
+    var token = req.headers['x-access-token'];
+        console.log(token);
+       if(token){   
+        jwt.verify(token,process.env.SECRET,(error,data)=>{
+           if(error)
+           {             
+             res.status(403).json({isLoggedIn : 'false'});
+           }
+           else
+           {   
+             res.status(200).json({isLoggedIn : 'true'});
+           }
+         });
+       }
+       else{
+          res.status(403).json({isLoggedIn : 'false'});
+        
+       }
+});
 
 module.exports = app;

@@ -1,7 +1,10 @@
 *{
   padding : 0px;
   margin: 0px;
+  box-sizing : border-box;
+   
 }
+
 p{
   font-size : 25px;
   font-weight :300;
@@ -148,6 +151,15 @@ a:hover {
 .site-layout .site-layout-background {
   background: #fff;
 }
+.homepageBodyBackground{
+  height : 92vh;
+  background-image: url('./image/background.jpg');
+  background-color : #ffffff;
+  overflow : hidden;
+  background-size : cover;
+  background-repeat : no-repeat;
+  background-position :  center;
+  }
 /* .App {
   height: 100vh;
   display: flex;

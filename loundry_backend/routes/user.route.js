@@ -70,7 +70,7 @@ router.post('/signup',async(req, res, next)=> {
             }
             else{
              
-              alert('Check Your Email For Verification. Click The Link Given Below')
+              alert('Check Your Email For Verification. Click The Link Given Below');
               res.json({
                 message :'Check Your Email For Verification. Click The Link Given Below'
               }); 
@@ -91,9 +91,9 @@ router.post('/signup',async(req, res, next)=> {
 // For Email Verification 
 
 const verifyLimit = rateLimit({
-  windowMs : 60 *60 *1000,
+  windowMs : 60 * 60 *1000,
   max : 1,
-  message : "Not need To verify Email Again, Yur are Verifyed User"
+  message : "Not need To verify Email Again, Your are Verifyed User"
 })
 router.get('/verify',async(req,res,next)=>{
     try{

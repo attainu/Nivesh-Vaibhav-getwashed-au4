@@ -13,22 +13,22 @@ class Profile extends React.Component
     constructor()
     {
         super(); 
-        let isLoggedIn = false;
-        let token = localStorage.getItem('token');
-        
-        if(token){
-            isLoggedIn = true;
-        }
+       
        this.state={
             orders:[],
             bookOrder:"",
             getOrder:"",
-            isLoggedIn
+            isLoggedIn : false
         }
        
     }
     componentDidMount=()=>{
-   
+        let token = localStorage.getItem('token');
+        console.log('inside profile cdm');
+        this.setState({
+            isLoggedIn : true
+        })
+        
     }
   
      handleGetOrder=()=>{
@@ -108,7 +108,6 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
     return{
-
         getOrder: (id)=>dispatch(getOrder(id)),
         bookOrder:  (id)=>dispatch(bookOrder(id)),
         selectDate : (date)=>dispatch(selectDate(date)),

@@ -1,5 +1,6 @@
 import  React from "react";
 import { Input, Menu } from 'semantic-ui-react'
+
 class Homepage extends React.Component
 {
     constructor()
@@ -12,8 +13,8 @@ class Homepage extends React.Component
     render()
     {
         return(
-        <div>
-
+        <div className="homepageBodyBackground container-fluid ">
+            <div className="">div 1</div>
         </div>);
     }
 }
