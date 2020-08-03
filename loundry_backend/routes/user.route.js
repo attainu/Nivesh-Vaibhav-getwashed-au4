@@ -68,10 +68,8 @@ router.post('/signup',async(req, res, next)=> {
             if(err){
               console.log(err);
             }
-            else{
-             
-              alert('Check Your Email For Verification. Click The Link Given Below');
-              res.json({
+            else{             
+              res.status(200).json({
                 message :'Check Your Email For Verification. Click The Link Given Below'
               }); 
             }
@@ -84,16 +82,16 @@ router.post('/signup',async(req, res, next)=> {
       }
 
   } catch (error) {
-    console.log(error)
+    console.log('Inside Catch Block',error)
   }
 });
 
 // For Email Verification 
 
 const verifyLimit = rateLimit({
-  windowMs : 60 * 60 *1000,
+  windowMs : 60 *60 *1000,
   max : 1,
-  message : "Not need To verify Email Again, Your are Verifyed User"
+  message : "Not need To verify Email Again, Yur are Verifyed User"
 })
 router.get('/verify',async(req,res,next)=>{
     try{

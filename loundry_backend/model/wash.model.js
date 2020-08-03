@@ -18,7 +18,7 @@ const wash = dbConnection.define('wash',{
       },
       image:{
         type:Sequelize.BLOB,
-        allowNull : false
+        allowNull : true
       }
       
   },{
