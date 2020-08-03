@@ -20,17 +20,10 @@ class Profile extends React.Component
             getOrder:"",
             isLoggedIn : false
         }
+        
        
     }
-    componentDidMount=()=>{
-        let token = localStorage.getItem('token');
-        console.log('inside profile cdm');
-        this.setState({
-            isLoggedIn : true
-        })
-        
-    }
-  
+    
      handleGetOrder=()=>{
         
         this.setState({
@@ -48,7 +41,20 @@ class Profile extends React.Component
         // this.props.bookOrder(this.state.bookingOrder);
     }
     
-   
+   componentWillMount=()=>{
+    let token = localStorage.getItem('token');
+
+    if(token){
+        console.log('no of times call');
+        this.setState({ isLoggedIn : true});
+    }
+    let result = axios.get('http://localhost:8080/authenticate',{ headers:{ 'x-access-token': token}});
+    result.
+        then((res)=>{
+            console.log(res);
+        })
+        .catch((err)=>{ console.log(err)})
+   }
     
     render()
     {

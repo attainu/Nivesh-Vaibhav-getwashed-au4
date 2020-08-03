@@ -6,7 +6,9 @@ export const  makeRegistration=(state)=>{
      
       const result = axios.post('http://localhost:8080/user/signup',state);
       result
-        .then((response)=>{ dispatch(register(response.data.message)) })
+        .then((response)=>{ 
+          console.log(response.data.message);
+          dispatch(register(response.data.message)) })
         .catch((error)=>{console.log(error);})
     }  
 } 

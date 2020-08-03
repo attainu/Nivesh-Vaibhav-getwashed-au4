@@ -143,33 +143,25 @@ const orderReducer = (state = userOrderState, action) => {
                     for (let item in stateCopy.items) {
                         stateCopy.items[item].order_orderId = orderId;
                     }
-
-                    result = axios.post('http://localhost:8080/cloth/add', stateCopy.items);
-                    result
-                        .then((response) => {
-                            alert('order Placed Successfully');
-                            //  ls.set('LoundryCart',{
-                            //     "Items": [],
-                            //     "CartTotal" : 0
-                            // });
-                            stateCopy.items = [];
-                            stateCopy.totalCost = 0;
+                 
+                  
+                        result = axios.post('http://localhost:8080/cloth/add', stateCopy.items);
+                        result
+                            .then((response) => {
+                                 alert('order Placed Successfully');                
                             return stateCopy;
-
-
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        })
-
-
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            })
+                    
                 })
                 .catch((error) => {
                     console.log(error)
                 });
-     
-            return stateCopy;
-
+                stateCopy.items = [];                          
+                stateCopy.totalCost = 0;
+                return stateCopy;
         case 'add_cloth':
             let itemsCopy = stateCopy.items.slice();
 
