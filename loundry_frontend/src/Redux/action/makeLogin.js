@@ -1,7 +1,7 @@
 const axios = require('axios');
 export const makeLogin=(state)=>{
     return (dispatch)=>{
-        const result = axios.post(`http://localhost:8080/user/signin`,state);
+        const result = axios.post(`/user/signin`,state);
             result
               .then((response)=>{  
               console.log(response);           
