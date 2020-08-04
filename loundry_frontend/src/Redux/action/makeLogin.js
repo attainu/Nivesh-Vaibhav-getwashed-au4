@@ -7,7 +7,7 @@ export const makeLogin=(state)=>{
               console.log(response);           
                 if(response.data.message)
                 {  
-                  console.log('inside response if',response.data.message);   
+                    
                   dispatch(sendMassage(response.data.message))          
                   
                 }
