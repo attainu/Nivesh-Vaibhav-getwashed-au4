@@ -1,26 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.6579f4d7.chunk.css",
-    "main.js": "/static/js/main.daae8eb4.chunk.js",
-    "main.js.map": "/static/js/main.daae8eb4.chunk.js.map",
+    "main.css": "/static/css/main.f3e41875.chunk.css",
+    "main.js": "/static/js/main.916294de.chunk.js",
+    "main.js.map": "/static/js/main.916294de.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.256c6f09.js",
     "runtime-main.js.map": "/static/js/runtime-main.256c6f09.js.map",
     "static/css/2.68c1e390.chunk.css": "/static/css/2.68c1e390.chunk.css",
-    "static/js/2.79b7f1a0.chunk.js": "/static/js/2.79b7f1a0.chunk.js",
-    "static/js/2.79b7f1a0.chunk.js.map": "/static/js/2.79b7f1a0.chunk.js.map",
+    "static/js/2.53fc8935.chunk.js": "/static/js/2.53fc8935.chunk.js",
+    "static/js/2.53fc8935.chunk.js.map": "/static/js/2.53fc8935.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.0139f2f53ec0f1b1646909e47624c985.js": "/precache-manifest.0139f2f53ec0f1b1646909e47624c985.js",
+    "precache-manifest.4b5bcf97e5669c8548e734f25fce912d.js": "/precache-manifest.4b5bcf97e5669c8548e734f25fce912d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.68c1e390.chunk.css.map": "/static/css/2.68c1e390.chunk.css.map",
-    "static/css/main.6579f4d7.chunk.css.map": "/static/css/main.6579f4d7.chunk.css.map",
-    "static/js/2.79b7f1a0.chunk.js.LICENSE.txt": "/static/js/2.79b7f1a0.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/static/media/background.e726aecb.jpg"
+    "static/css/main.f3e41875.chunk.css.map": "/static/css/main.f3e41875.chunk.css.map",
+    "static/js/2.53fc8935.chunk.js.LICENSE.txt": "/static/js/2.53fc8935.chunk.js.LICENSE.txt",
+    "static/media/Iron-icon.png": "/static/media/Iron-icon.3c2a3076.png",
+    "static/media/App.css": "/static/media/loundryBackground.46fad752.jpg",
+    "static/media/loundryMachine.jpg": "/static/media/loundryMachine.234b4299.jpg",
+    "static/media/loundryTransport.jpg": "/static/media/loundryTransport.dfd84619.jpg",
+    "static/media/shirt-icon.png": "/static/media/shirt-icon.00a5d736.png",
+    "static/media/washin-machine-icon.png": "/static/media/washin-machine-icon.331ee013.png"
   },
   "entrypoints": [
     "static/js/runtime-main.256c6f09.js",
     "static/css/2.68c1e390.chunk.css",
-    "static/js/2.79b7f1a0.chunk.js",
-    "static/css/main.6579f4d7.chunk.css",
-    "static/js/main.daae8eb4.chunk.js"
+    "static/js/2.53fc8935.chunk.js",
+    "static/css/main.f3e41875.chunk.css",
+    "static/js/main.916294de.chunk.js"
   ]
 }
