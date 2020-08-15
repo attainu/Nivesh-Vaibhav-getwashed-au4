@@ -23,9 +23,11 @@ router.get('/read/order/:date',async (req,res,next)=>{
   try {
       let {...params }= req.params;
       console.log(params);
-      let order = await Order.findAll({ where:{order_date : params.date },attributes:['id','order_date','order_time','order_typeofwash','order_totalprice','order_status'],
-                                        include: [{model:User,attributes:['fullName','email','mobile','address']},
-                                                  {model:Cloth, attributes:["cloth_name"]}]});
+      let order = await Order.findAll({ where:{order_date : params.date },
+                              attributes:['id','order_date','order_time','order_typeofwash','order_totalprice','order_status'],
+                              include: [{model:User,attributes:['fullName','email','mobile','address']},
+                              {model:Cloth, attributes:["cloth_name"]}]
+                            });
       res.json(order);
   } catch (error) {
     console.log(error);

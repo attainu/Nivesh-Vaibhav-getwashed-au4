@@ -15,6 +15,7 @@ var washRouter = require('./routes/wash.route.js');
 var dryCleanRouter = require('./routes/dryClean.route.js');
 let actionRouter = require('./routes/action.route');
 let authenticate = require('./routes/authentication');
+let adminRouter = require('./routes/admin.route');
 
 var app = express();
 app.set('trust proxy', 1);
@@ -54,6 +55,7 @@ app.use('/iron', ironRouter);
 app.use('/wash',washRouter);
 app.use('/dryClean',dryCleanRouter);
 app.use('/action',actionRouter);
+app.use('/admin',adminRouter);
 
 app.get('/authenticate',(req,res,next)=>{
     var token = req.headers['x-access-token'];

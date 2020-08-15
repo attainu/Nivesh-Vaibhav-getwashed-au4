@@ -1,11 +1,14 @@
-import { React  } from "react";
+import React,{ Component  } from "react";
 import { connect } from "react-redux";
-class AdminLogin{
-    constructor(props){
+import { Form,Button } from "react-bootstrap";
+import { makeAdminLogin } from "../../Redux/action/makeAdminLogin";
+class AdminLogin extends Component{
+    constructor(){
         super();
         this.state={
-            username="",
-            password = ""
+          email :'',
+          password:'',
+          isError:''
         }
     }
     componentWillMount()
@@ -16,12 +19,48 @@ class AdminLogin{
     {
 
     }
-    handleChange(){
-        
+    handleChange=(e)=> {
+      let target = e.target;
+      let value = target.type === 'checkbox' ? target.checked : target.value;
+      let name = target.name;
+
+      this.setState({
+        [name] : value
+      });
+      
+  }
+    handleError(error){
+      this.setState({
+        isError : error
+      })
+    }
+    handleSubmit=(e)=>{
+      e.preventDefault();
+
+      if(this.state.email === ""){
+        this.handleError("Please Enter Email");
+      }
+      if(! this.isEmail(this.state.email)){
+        this.handleError("Please Enter Valid  Email Address");
+      }
+      if(this.state.password === ""){
+        this.handleError("Enter Your Password");
+      }
+        let { isError,...state } = this.state;       
+        this.props.makeAdminLogin(state);
+
+    }
+    isEmail=(email)=>{
+      var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!regex.test(email)) {
+            return false;
+        } else {
+            return true;
+        }
     }
     render(){
-        <div>
-            <div className="signinForm col-md-5 border-dark shadow rounded mx-auto mt-5 p-3 bg-light">
+      return (
+        <div className="signinForm col-md-5 border-dark shadow rounded mx-auto mt-5 p-3 bg-light">
             <h1 className="mx-auto text-center">Login</h1> <hr/>
 
                   <form onSubmit={this.handleSubmit}>
@@ -44,17 +83,18 @@ class AdminLogin{
 
           </form>
           </div>
-        </div>
+        );
+      
     }
-    mapStateToProps(state){
-        return{
+}
+const mapStateToProps=(state)=>{
+  return{
 
-        }
-    }
-    mapStateToDispatch(dispatch){
-        return{
-
-        }
-    }
+  }
+}
+const mapStateToDispatch=(dispatch)=>{
+  return{
+    makeAdminLogin : (state)=>dispatch(makeAdminLogin(state))
+  }
 }
 export default connect(mapStateToProps,mapStateToDispatch)(AdminLogin);
