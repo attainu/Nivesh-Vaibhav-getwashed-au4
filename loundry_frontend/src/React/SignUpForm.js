@@ -77,7 +77,7 @@ class SignUpForm extends Component {
           this.handleError('');  
 
         let { isError, ...state } = this.state;
-        console.log(state);  
+        
         this.props.makeRegistration(state);
         
         

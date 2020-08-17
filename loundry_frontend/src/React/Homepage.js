@@ -77,19 +77,19 @@ class Homepage extends React.Component
                     <h4 className='subHeading'>Stay clean and dress well</h4>
                 </div>
                 <div className='workingProcess'>
-                    <Card style={{"width":"12rem"}}>
+                    <Card style={{"width":"12rem", "height":"15rem"}}>
                         <Image src={washIcon} wrapped ui={false} />
                         <Card.Content>
                         <Card.Header>WASHING</Card.Header>
                         </Card.Content>
                     </Card>
-                    <Card style={{"width":"12rem"}}>
+                    <Card style={{"width":"12rem",  "height":"15rem","margin-top":"0px"}}>
                         <Image src={ironIcon} wrapped ui={false} />
                         <Card.Content>
                         <Card.Header>IRON</Card.Header>
                         </Card.Content>
                     </Card>
-                    <Card style={{"width":"12rem", "height":"15rem"}}>
+                    <Card style={{"width":"12rem", "height":"15rem","margin-top":"0px"}}>
                         <Image src={clothIcon} wrapped ui={false} />
                         <Card.Content>
                         <Card.Header>DRY CLEAN</Card.Header>
