@@ -76,11 +76,12 @@ router.post('/signup',async(req, res, next)=> {
           // })
         
           let mailResult = await smtpTransport.sendMail(mailOption);
-          mailResult
-            .then((result)=>{
-              res.status(200).json({ 'message':'Check your Email for verification. Click the link given below'})
-            })
-            .catch((error)=>{ console.log(error)});
+          if(mailResult){
+            res.status(200).json({ 'message':'Check your Email for verification. Click the link given below'})
+          }
+          else{
+            console.log(error);
+          }
 
       }
       else{
