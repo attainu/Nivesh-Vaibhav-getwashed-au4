@@ -64,18 +64,24 @@ router.post('/signup',async(req, res, next)=> {
           subject : "Please Confirm Your Email Account",
           html: "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>"
         }
-          smtpTransport.sendMail(mailOption,(err,data)=>{
-            if(err){
-              console.log(err);
-            }
-            else{             
-              res.status(200).json({
-                message :'Check Your Email For Verification. Click The Link Given Below'
-              }); 
-            }
-          })
+          // smtpTransport.sendMail(mailOption,(err,data)=>{
+          //   if(err){
+          //     console.log(err);
+          //   }
+          //   else{             
+          //     res.status(200).json({
+          //       message :'Check Your Email For Verification. Click The Link Given Below'
+          //     }); 
+          //   }
+          // })
         
-           
+          let mailResult = await smtpTransport.sendMail(mailOption);
+          mailResult
+            .then((result)=>{
+              res.status(200).json({ 'message':'Check your Email for verification. Click the link given below'})
+            })
+            .catch((error)=>{ console.log(error)});
+
       }
       else{
         res.json({ message :'User All Ready signUp with Email' });
