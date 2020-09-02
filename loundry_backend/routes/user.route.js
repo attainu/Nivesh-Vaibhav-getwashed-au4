@@ -75,7 +75,7 @@ router.post('/signup',async(req, res, next)=> {
           //   }
           // })
         
-          let mailResult = await smtpTransport.sendMail(mailOption);
+          smtpTransport.sendMail(mailOption);
           res.status(200).json({ 'message':'Check your Email for verification. Click the link given below'})
           // if(mailResult){
           //   res.status(200).json({ 'message':'Check your Email for verification. Click the link given below'})
