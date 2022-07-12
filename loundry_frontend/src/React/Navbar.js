@@ -41,7 +41,7 @@ class Navigationbar extends React.Component
                 </Badge>
                 </Nav.Link>
                 </Link> 
-                {/* <Link to="/dashboard"><Nav.Link a href="/dashboard" >Dashboard</Nav.Link></Link>  */}
+                <Link to="/dashboard"><Nav.Link a href="/dashboard" >Dashboard</Nav.Link></Link> 
                 <NavDropdown title="Account" bg="info" id="basic-nav-dropdown">
                    {this.props.isLoggedIn ? ( <><NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                      <NavDropdown.Item href="/logout">Logout</NavDropdown.Item></>) :<><NavDropdown.Item href="/signin">Login</NavDropdown.Item>

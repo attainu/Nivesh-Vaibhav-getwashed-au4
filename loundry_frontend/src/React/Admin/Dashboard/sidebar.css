@@ -1,0 +1,48 @@
+.sidebar{
+   
+    min-width: 20vw;
+    height: 92vh;
+    background-color: #900C3F;
+   
+}
+
+.sidebar__top {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+    
+}
+
+.sidebar__top> h4{
+   color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.sidebar__top>span{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+.sidebar>hr {
+    border-top: 1px solid white;
+ }
+
+ .sidebar__navlinks {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    line-height: 50px;
+    
+    text-decoration: none;
+   
+   
+    justify-content: left;
+   
+   
+}
+

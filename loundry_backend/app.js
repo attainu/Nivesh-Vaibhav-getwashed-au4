@@ -4,6 +4,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var jwt = require('jsonwebtoken');
 var expressRateLimit = require('express-rate-limit');
+const Sequelize = require('sequelize');
+const dotenv  = require('dotenv');
 
 // let session = require('express-session');
 
@@ -48,6 +50,28 @@ if(process.env.NODE_ENV === 'production'){
     });
 }
 
+dotenv.config();
+
+ let dbConnection = null;
+if(process.env.NODE_ENV === 'production'){
+      dbConnection = new Sequelize(process.env.DATABASE_URL);
+}
+else{
+     dbConnection = new Sequelize(process.env.CONNECTIONURL);
+}
+ 
+
+dbConnection
+    .authenticate()
+        .then((res)=>{
+            console.log(' Db Connection is created');
+        })
+        .catch(()=>{ 
+            console.log(' Db Connection is not created');
+        })
+
+
+
 app.use('/cloth', clothRouter);
 app.use('/order', orderRouter);
 app.use('/user', userRouter);
@@ -58,7 +82,7 @@ app.use('/action',actionRouter);
 app.use('/admin',adminRouter);
 
 app.get('/authenticate',(req,res,next)=>{
-    var token = req.headers['x-access-token'];
+  const token = req.header("Authorization").replace("Bearer ", "");
         console.log(token);
        if(token){   
         jwt.verify(token,process.env.SECRET,(error,data)=>{

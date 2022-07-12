@@ -1,0 +1,6 @@
+.dashboard_sideboard_maincontent{
+    display: flex;
+    flex-direction: row;
+    justify-content:stretch;
+    align-items: center;
+}

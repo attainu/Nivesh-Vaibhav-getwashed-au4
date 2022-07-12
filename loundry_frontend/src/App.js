@@ -12,8 +12,9 @@ import SignInForm from './React/SignInForm';
 import BookingCart  from './React/bookingCart';
 import ChangeAddress from './React/changeAddress';
 import Logout from './React/logout';
-import Dashboard from './React/dashboard';
+import AdminDashboard from './React/Admin/admin.dashboard';
 import AdminLogin from './React/Admin/admin.login.component';
+
 
 import './App.css';
 
@@ -35,7 +36,7 @@ class App extends Component {
               <Route path='/booking' component={BookingCart}/>
               <Route path='/address' component={ChangeAddress}/>
               <Route path="/logout" component={Logout}/>
-              <Route path="/Dashboard" component={Dashboard}/>
+              <Route path="/Dashboard" component={AdminDashboard}/>
               <Route path='/admin/signin' component={AdminLogin} />                  
               <Route component={Nomatch} />
             </Switch> 
