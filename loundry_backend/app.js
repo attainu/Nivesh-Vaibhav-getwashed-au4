@@ -6,6 +6,8 @@ var jwt = require('jsonwebtoken');
 var expressRateLimit = require('express-rate-limit');
 const Sequelize = require('sequelize');
 const dotenv  = require('dotenv');
+const cors = require('cors');
+
 
 // let session = require('express-session');
 
@@ -25,6 +27,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
 // app.use(
 //     session({
@@ -49,27 +52,6 @@ if(process.env.NODE_ENV === 'production'){
        res.sendFile(path.join(__dirname+'/build/index.html'))
     });
 }
-
-dotenv.config();
-
- let dbConnection = null;
-if(process.env.NODE_ENV === 'production'){
-      dbConnection = new Sequelize(process.env.DATABASE_URL);
-}
-else{
-     dbConnection = new Sequelize(process.env.CONNECTIONURL);
-}
- 
-
-dbConnection
-    .authenticate()
-        .then((res)=>{
-            console.log(' Db Connection is created');
-        })
-        .catch(()=>{ 
-            console.log(' Db Connection is not created');
-        })
-
 
 
 app.use('/cloth', clothRouter);

@@ -1,5 +1,6 @@
 const axios = require('axios');
 export const makeLogin=(state)=>{
+  console.log("from make login fun",state);
     return (dispatch)=>{
         const result = axios.post(`/user/signin`,state);
             result

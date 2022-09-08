@@ -29,6 +29,7 @@ class SignInForm extends Component {
         this.setState({
           [name]: value
         });
+        
     }
 
     handleSubmit(e) {
@@ -48,6 +49,7 @@ class SignInForm extends Component {
 
         
         let { isError, ...state } = this.state;
+        
        this.props.makeLogin(state);
       
     }

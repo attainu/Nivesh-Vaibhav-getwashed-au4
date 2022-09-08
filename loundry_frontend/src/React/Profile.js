@@ -25,7 +25,7 @@ class Profile extends React.Component
     }
     
      handleGetOrder=()=>{
-        
+     
         this.setState({
             bookOrder : '',
             getOrder:"order"
@@ -34,6 +34,7 @@ class Profile extends React.Component
            
     }
     handleBookOrder=()=>{
+     
         this.setState({
             bookOrder : 'order',
             getOrder:""
@@ -79,7 +80,7 @@ class Profile extends React.Component
                     </span>
                 </div>                
                     <button className='fetchButton' onClick={(e)=>{this.handleGetOrder(e.target)}}>Fetch Your Orders</button>&nbsp;&nbsp;
-                    <button className='fetchButton' onClick={(e)=>{this.handleBookOrder(e.targetKey)}}>Book Your Loundry</button>&nbsp;&nbsp;                
+                    <button className='fetchButton' onClick={(e)=>{this.handleBookOrder(e.target)}}>Book Your Loundry</button>&nbsp;&nbsp;                
                                  
             </Jumbotron>
             <div>

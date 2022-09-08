@@ -9,6 +9,7 @@
     "antd": "^4.3.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "caniuse-lite": "^1.0.30001365",
     "local-storage": "^2.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
