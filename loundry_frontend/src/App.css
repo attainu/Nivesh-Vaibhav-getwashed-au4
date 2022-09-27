@@ -58,7 +58,7 @@ color: white;
   text-align: center;
   margin : 20px;
   color : white;
-  box-shadow: 14px 14px 12px -10px rgba(0,0,0,0.75);
+  box-shadow: 14px 14px 12px -10px #000000bf;
 }
 .flexWrapper{
   display: flex;

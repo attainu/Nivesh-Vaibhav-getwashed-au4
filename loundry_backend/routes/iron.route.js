@@ -17,6 +17,7 @@ router.post('/add', async(req, res, next) => {
 
 router.get('/read',async (req,res,next)=>{
   try {
+    console.log('from iron route read method')
       let {...params }= req.params;
         let iron = await Iron.findAll();
         res.json(iron);

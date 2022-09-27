@@ -11,13 +11,10 @@ class GetOrderByUserId extends React.Component {
     };
   }
   componentDidMount = () => {
-   
-    let order = axios.get(
-      `https://localhost:8080/order/read/user/${this.props.userId}`
-    );
+    let order = axios.get(`/order/user/${this.props.userId}`);
     order
       .then((response) => {
-        alert("from Axios call", response.data, response.data.length);
+       // alert("from Axios call", response.data, response.data.length);
         let length = response.data.length;
         if (length >= 1) {
           console.log("if len gretter ");

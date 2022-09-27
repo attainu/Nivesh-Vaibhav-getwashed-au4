@@ -64,8 +64,10 @@ app.use('/action',actionRouter);
 app.use('/admin',adminRouter);
 
 app.get('/authenticate',(req,res,next)=>{
+
   const token = req.header("Authorization").replace("Bearer ", "");
-        console.log(token);
+  req.header('Authorization').replace("Bearer ","")
+        
        if(token){   
         jwt.verify(token,process.env.SECRET,(error,data)=>{
            if(error)
